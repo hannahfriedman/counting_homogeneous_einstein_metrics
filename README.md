@@ -1,1 +1,1 @@
-# counting_homogeneous_einstein_metrics
+# Counting Homogeneous Einstein Metrics
