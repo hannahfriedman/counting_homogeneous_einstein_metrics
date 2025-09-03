@@ -22,7 +22,7 @@ F_eval = System(expand.(evaluate(F, [xvars; yvars; z], [(1/(2*n-1))*ones(length(
 mv = mixed_volume(F_eval);
 
 # Solve the system + certify solutions
-mon_res = monodromy_solve(F, target_solutions_count=mv);
+mon_res = monodromy_solve(F, target_solutions_count=mv, threading=true);
 certify(F, solutions(mon_res), parameters(mon_res));
 S = solve(F, solutions(mon_res); start_parameters = parameters(mon_res), target_parameters = [(1/(2*n-1))*ones(length(vec(L))); ones(length(vec(b))); ones(length(vec(d)))]);
 certify(F, solutions(S),  [(1/(2*n-1))*ones(length(vec(L))); ones(length(vec(b))); ones(length(vec(d)))]);

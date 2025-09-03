@@ -21,7 +21,7 @@ F_eval = expand.(evaluate(F, [xvars; yvars], [(1/(2*n-2))*ones(2*length(vec(L)))
 mv = MixedSubdivisions.mixed_volume(System(F_eval));
 
 # Solve the system + certify solutions
-mon_res = monodromy_solve(F, target_solutions_count=mv);
+mon_res = monodromy_solve(F, target_solutions_count=mv, threading=true);
 certify(F, solutions(mon_res), parameters(mon_res));
 S = solve(F, solutions(mon_res); start_parameters = parameters(mon_res), target_parameters = [(1/(2*n-2))*ones(2*length(vec(L))); ones(length(vec(b))); ones(length(vec(d)))]);
 certify(F, solutions(S), [(1/(2*n-2))*ones(2*length(vec(L))); ones(length(vec(b))); ones(length(vec(d)))]);
