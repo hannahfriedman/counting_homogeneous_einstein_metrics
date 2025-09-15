@@ -2,7 +2,7 @@ using HomotopyContinuation, Combinatorics, MixedSubdivisions, LinearAlgebra;
 include("group_fns.jl");
 
 # Here, n differs from the n in the paper by 1
-n = 4;
+n = 5;
 
 # Set up the system 
 @var L[1:n, 1:n, 1:n], x[1:n, 1:n], b[1:n, 1:n], d[1:n, 1:n];
